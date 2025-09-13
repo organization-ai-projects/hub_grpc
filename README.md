@@ -28,7 +28,10 @@ grpc-hub/
 
 ### Prerequisites
 - Rust stable
-- `protoc` (macOS: `brew install protobuf`, Ubuntu: `sudo apt install protobuf-compiler`, Windows: [Download pre-built binaries](https://github.com/protocolbuffers/protobuf/releases), extract, and add to PATH)
+- `protoc`
+  - **macOS:** `brew install protobuf`
+  - **Ubuntu:** `sudo apt install protobuf-compiler`
+  - **Windows:** [Download pre-built binaries](https://github.com/protocolbuffers/protobuf/releases), extract, and add to PATH
 
 ### Build & Run
 ```bash
