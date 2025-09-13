@@ -76,4 +76,4 @@ curl -s localhost:9090/metrics | head
 - Extensible: add RPCs without breaking contract
 
 ---
-Ready to use, all-in-one, zero stub, automated end-to-end.
+Ready to use, all-in-one, no manual setup, automated end-to-end.
