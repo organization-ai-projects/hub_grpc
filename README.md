@@ -39,7 +39,7 @@ cargo run
 - Prometheus metrics on `0.0.0.0:9090/metrics`
 
 ### Example gRPC calls (grpcurl)
-> If `auth_token` is set (e.g. `devtoken123`), add `-H "authorization: Bearer devtoken123"`
+- If `auth_token` is set (e.g. `devtoken123`), add `-H "authorization: Bearer devtoken123"` to your grpcurl command.
 
 - **List services (reflection):**
 ```bash
