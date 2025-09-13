@@ -1,0 +1,18 @@
+# écoute gRPC (HTTP/2)
+addr = "0.0.0.0:50051"
+# endpoint metrics Prometheus
+metrics_addr = "0.0.0.0:9090"
+# auth token simple (optionnel). Si vide ou absent => pas d'auth.
+auth_token = "devtoken123"
+
+# Adapters lancés au démarrage
+[[adapters]]
+project_id = "alpha"
+command    = "builtin:echo"   # marche sans rien installer
+args       = []
+
+# Exemple adapter externe :
+# [[adapters]]
+# project_id = "beta"
+# command    = "/usr/local/bin/mon_adapter"
+# args       = ["--flag"]

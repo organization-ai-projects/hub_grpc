@@ -1,0 +1,37 @@
+syntax = "proto3";
+package hub.v1;
+
+option optimize_for = SPEED;
+
+message RunRequest {
+  string project_id = 1;
+  uint64 max_passes = 2;
+  enum Mode { FAST = 0; SAFE = 1; }
+  Mode mode = 3;
+}
+message RunResponse { bool ok = 1; string error = 2; }
+
+message SubscribeRequest {
+  string project_id = 1;
+  repeated string topics = 2; // ex: ["diagnostics","logs","patches"]
+}
+message Event {
+  string project_id = 1;
+  string topic = 2;      // "diagnostics" | "logs" | …
+  bytes  payload = 3;    // libre : JSON/protobuf embarqué
+  int64  ts_unix_ms = 4;
+}
+
+message OpenAdapterRequest {
+  string project_id = 1;
+  string command    = 2;        // binaire OU "builtin:echo"
+  repeated string args = 3;
+}
+message CloseAdapterRequest { string project_id = 1; }
+
+service Hub {
+  rpc RunOnProject(RunRequest) returns (RunResponse);
+  rpc Subscribe(SubscribeRequest) returns (stream Event);
+  rpc OpenAdapter(OpenAdapterRequest) returns (RunResponse);
+  rpc CloseAdapter(CloseAdapterRequest) returns (RunResponse);
+}
